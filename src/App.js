@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import axios from "axios";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Temperature from "./Temperature";
 import Search from "./Search";
