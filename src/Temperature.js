@@ -22,17 +22,18 @@ export default function Temperature() {
           <img
             src="http://openweathermap.org/img/wn/09d@2x.png"
             id="icon-top"
+            alt="weather-logo"
           />
 
           <div className="d-flex flex-column d-flex align-items-center">
             <div>
               H:<span className="high-degree">6</span>
               <span className="today-high-temp">
-                <a href="#" id="celsius-link-high" className="active">
+                <a href="/" id="celsius-link-high" className="active">
                   °C
                 </a>
                 |
-                <a href="#" id="fahrenheit-link-high">
+                <a href="/" id="fahrenheit-link-high">
                   °F
                 </a>
               </span>
@@ -40,11 +41,11 @@ export default function Temperature() {
             <div>
               L:<span className="low-degree">1</span>
               <span className="today-low-temp">
-                <a href="#" id="celsius-link-low" className="active">
+                <a href="/" id="celsius-link-low" className="active">
                   °C
                 </a>
                 |
-                <a href="#" id="fahrenheit-link-low">
+                <a href="/" id="fahrenheit-link-low">
                   °F
                 </a>
               </span>
