@@ -10,7 +10,7 @@ function App() {
     <div className="container">
       <div className="box">
         <div className="weather-app">
-          <Temperature defaultCity="Vancouver" />
+          <Temperature defaultCity="Istanbul" />
           <Search />
         </div>
       </div>
