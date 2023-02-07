@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Temperature.css";
 
-export default function Temperature() {
+export default function Temperature(props) {
   const [weatherData, setWeatherData] = useState(null);
   const [allData, setAllData] = useState(false);
 
   function showWeather(response) {
     setAllData(true);
     setWeatherData({
-      maxTemperature: response.data.main.temp_max,
-      minTemperature: response.data.main.temp_min,
+      maxTemperature: Math.round(response.data.main.temp_max),
+      minTemperature: Math.round(response.data.main.temp_min),
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -23,7 +23,7 @@ export default function Temperature() {
       <div className="Temperature">
         <div className="row justify-content-between">
           <div className="col-4">
-            <h1>Vancouver</h1>
+            <h1>{props.defaultCity}</h1>
             <ul className="left">
               <li id="date-time">Friday 9:00</li>
               <li id="weather-description" className="text-capitalize">
@@ -85,8 +85,7 @@ export default function Temperature() {
     );
   } else {
     const apiKey = "ecf6996c8a62ee385547d2ae6dc3dea8";
-    let city = "Vancouver";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&units=metric&appid=${apiKey}`;
     axios.get(apiUrl).then(showWeather);
 
     return "Loading...";
