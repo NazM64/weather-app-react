@@ -58,22 +58,18 @@ export default function WeatherTemperature(props) {
     return (
       <div className="WeatherTemperature">
         <div>
-          H:
-          <span className="high-degree">{props.highCelsius}</span>
+          H: <span className="high-degree">{props.highCelsius}</span>
           <span className="today-high-temp">
             <a href="/" id="celsius-link-high" onClick={showHighCelsius}>
-              {" "}
               °C{" "}
             </a>
             | °F
           </span>
         </div>
         <div>
-          L:
-          <span className="low-degree">{props.lowCelsius}</span>
+          L: <span className="low-degree">{props.lowCelsius}</span>
           <span className="today-low-temp">
             <a href="/" id="celsius-link-low" onClick={showLowCelsius}>
-              {" "}
               °C{" "}
             </a>
             | °F
