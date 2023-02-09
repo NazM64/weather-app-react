@@ -58,7 +58,7 @@ export default function WeatherTemperature(props) {
         </div>
       </div>
     );
-  } else
+  } else {
     return (
       <div className="WeatherTemperature">
         <div>
@@ -95,4 +95,5 @@ export default function WeatherTemperature(props) {
         </div>
       </div>
     );
+  }
 }
