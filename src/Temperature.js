@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Temperature.css";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
+import axios from "axios";
 
 export default function Temperature(props) {
   const [weatherData, setWeatherData] = useState(null);
   const [allData, setAllData] = useState(false);
+  const [city, setCity] = useState(props.defaultCity);
 
   function showWeather(response) {
     setAllData(true);
@@ -20,74 +22,40 @@ export default function Temperature(props) {
     });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    Search();
+  }
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+  function Search() {
+    const apiKey = "ecf6996c8a62ee385547d2ae6dc3dea8";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    axios.get(apiUrl).then(showWeather);
+  }
+
   if (allData) {
     return (
       <div className="Temperature">
-        <div className="row justify-content-between">
-          <div className="col-4">
-            <h1>{weatherData.city}</h1>
-            <ul className="left">
-              <li id="date-time">
-                <FormattedDate date={weatherData.date} />
-              </li>
-              <li id="weather-description" className="text-capitalize">
-                {weatherData.description}
-              </li>
-              <li>
-                Wind: <span id="wind"></span>
-                {weatherData.wind} km/h
-              </li>
-              <li>
-                Humidity: <span id="humidity"></span>
-                {weatherData.humidity}%
-              </li>
-            </ul>
-          </div>
-
-          <div className="col-4 d-flex align-items-center">
-            <img
-              src={weatherData.icon}
-              id="icon-top"
-              alt={weatherData.description}
-            />
-
-            <div className="d-flex flex-column d-flex align-items-center">
-              <div>
-                H:
-                <span className="high-degree">
-                  {weatherData.maxTemperature}
-                </span>
-                <span className="today-high-temp">
-                  <a href="/" id="celsius-link-high" className="active">
-                    °C
-                  </a>
-                  |
-                  <a href="/" id="fahrenheit-link-high">
-                    °F
-                  </a>
-                </span>
-              </div>
-              <div>
-                L:
-                <span className="low-degree">{weatherData.minTemperature}</span>
-                <span className="today-low-temp">
-                  <a href="/" id="celsius-link-low" className="active">
-                    °C
-                  </a>
-                  |
-                  <a href="/" id="fahrenheit-link-low">
-                    °F
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <WeatherInfo data={weatherData} />
         <div className="weather-forecast" id="forecast"></div>
+        <form onSubmit={handleSubmit} id="search-form">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Type the city name"
+            autoComplete="off"
+            autoFocus="on"
+            onChange={handleCityChange}
+          />
+          <input type="submit" value="Search" className="button" />
+          <input type="submit" value="Current" className="current-button" />
+        </form>
       </div>
     );
   } else {
+    Search();
     return "Loading...";
   }
 }

@@ -2,7 +2,6 @@ import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Temperature from "./Temperature";
-import Search from "./Search";
 import Footer from "./Footer";
 
 function App() {
@@ -10,8 +9,7 @@ function App() {
     <div className="container">
       <div className="box">
         <div className="weather-app">
-          <Temperature defaultCity="Istanbul" />
-          <Search />
+          <Temperature defaultCity="Vancouver" />
         </div>
       </div>
       <Footer />

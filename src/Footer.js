@@ -11,7 +11,7 @@ export default function Footer() {
           id="GitHub-link"
         >
           Open-Source code
-        </a>
+        </a>{" "}
         by Naz Mir
       </p>
     </div>
