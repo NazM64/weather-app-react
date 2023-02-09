@@ -26,21 +26,6 @@ li:first-letter {
 .low-temp {
   opacity: 0.5;
 }
-.today-high-temp .active {
-  color: black;
-  cursor: default;
-}
-.today-low-temp .active {
-  color: black;
-  cursor: default;
-}
-
-.today-high-temp .active:hover {
-  text-decoration: none;
-}
-.today-low-temp .active:hover {
-  text-decoration: none;
-}
 
 #search-form {
   position: relative;

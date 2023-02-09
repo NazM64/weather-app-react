@@ -21,7 +21,7 @@ export default function WeatherTemperature(props) {
     event.preventDefault();
     setLowDegree(Math.round((props.lowCelsius * 9) / 5 + 32));
   }
-  if (highDegree === "highCelsius" || lowDegree === "lowCelsius") {
+  if (highDegree === "highCelsius" && lowDegree === "lowCelsius") {
     return (
       <div className="WeatherTemperature">
         <div>
@@ -65,12 +65,7 @@ export default function WeatherTemperature(props) {
           H:
           <span className="high-degree">{props.highCelsius}</span>
           <span className="today-high-temp">
-            <a
-              href="/"
-              id="celsius-link-high"
-              className="active"
-              onClick={showHighCelsius}
-            >
+            <a href="/" id="celsius-link-high" onClick={showHighCelsius}>
               {" "}
               °C{" "}
             </a>
@@ -81,12 +76,7 @@ export default function WeatherTemperature(props) {
           L:
           <span className="low-degree">{props.lowCelsius}</span>
           <span className="today-low-temp">
-            <a
-              href="/"
-              id="celsius-link-low"
-              className="active"
-              onClick={showLowCelsius}
-            >
+            <a href="/" id="celsius-link-low" onClick={showLowCelsius}>
               {" "}
               °C{" "}
             </a>
