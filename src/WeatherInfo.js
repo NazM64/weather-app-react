@@ -38,10 +38,12 @@ export default function WeatherInfo(props) {
               <span className="high-degree">{props.data.maxTemperature}</span>
               <span className="today-high-temp">
                 <a href="/" id="celsius-link-high" className="active">
-                  °C
+                  {" "}
+                  °C{" "}
                 </a>
                 |
                 <a href="/" id="fahrenheit-link-high">
+                  {" "}
                   °F
                 </a>
               </span>
@@ -51,10 +53,12 @@ export default function WeatherInfo(props) {
               <span className="low-degree">{props.data.minTemperature}</span>
               <span className="today-low-temp">
                 <a href="/" id="celsius-link-low" className="active">
-                  °C
+                  {" "}
+                  °C{" "}
                 </a>
                 |
                 <a href="/" id="fahrenheit-link-low">
+                  {" "}
                   °F
                 </a>
               </span>
