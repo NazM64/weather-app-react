@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -33,36 +34,10 @@ export default function WeatherInfo(props) {
           />
 
           <div className="d-flex flex-column d-flex align-items-center">
-            <div>
-              H:
-              <span className="high-degree">{props.data.maxTemperature}</span>
-              <span className="today-high-temp">
-                <a href="/" id="celsius-link-high" className="active">
-                  {" "}
-                  °C{" "}
-                </a>
-                |
-                <a href="/" id="fahrenheit-link-high">
-                  {" "}
-                  °F
-                </a>
-              </span>
-            </div>
-            <div>
-              L:
-              <span className="low-degree">{props.data.minTemperature}</span>
-              <span className="today-low-temp">
-                <a href="/" id="celsius-link-low" className="active">
-                  {" "}
-                  °C{" "}
-                </a>
-                |
-                <a href="/" id="fahrenheit-link-low">
-                  {" "}
-                  °F
-                </a>
-              </span>
-            </div>
+            <WeatherTemperature
+              highCelsius={props.data.maxTemperature}
+              lowCelsius={props.data.minTemperature}
+            />
           </div>
         </div>
       </div>

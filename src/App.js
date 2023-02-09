@@ -1,7 +1,7 @@
 import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import Temperature from "./Temperature";
+import Weather from "./Weather";
 import Footer from "./Footer";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="container">
       <div className="box">
         <div className="weather-app">
-          <Temperature defaultCity="Vancouver" />
+          <Weather defaultCity="Vancouver" />
         </div>
       </div>
       <Footer />
