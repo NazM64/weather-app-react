@@ -12,6 +12,7 @@ export default function Weather(props) {
   function showWeather(response) {
     setAllData(true);
     setWeatherData({
+      coordinates: response.data.coord,
       maxTemperature: Math.round(response.data.main.temp_max),
       minTemperature: Math.round(response.data.main.temp_min),
       description: response.data.weather[0].description,
@@ -40,7 +41,10 @@ export default function Weather(props) {
     return (
       <div className="Temperature">
         <WeatherInfo data={weatherData} />
-        <WeatherForecast />
+        <WeatherForecast
+          coordinates={weatherData.coordinates}
+          icon={weatherData.icon}
+        />
         <form onSubmit={handleSubmit} id="search-form">
           <input
             type="text"
