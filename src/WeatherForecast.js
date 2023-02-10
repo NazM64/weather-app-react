@@ -15,15 +15,20 @@ export default function WeatherForecast(props) {
     <div className="WeatherForecast">
       <div className="row">
         <div className="col">
-          <div className="icon">{props.icon}</div>
+          <div className="icon">
+            <img
+              src={props.icon}
+              id="icon-top"
+              alt={props.description}
+              width="70"
+            />
+          </div>
           <div className="weather-forecast-days">Thursday</div>
           <div>
-            H:
-            <span class="high-temp">10°</span>
+            H: <span class="high-temp">10°</span>
           </div>
           <div>
-            L:
-            <span class="low-temp">2°</span>
+            L: <span class="low-temp">2°</span>
           </div>
         </div>
       </div>
