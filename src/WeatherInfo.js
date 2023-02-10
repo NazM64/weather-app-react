@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import FormattedDate from "./FormattedDate";
-import WeatherTemperature from "./WeatherTemperature";
+import WeatherHighTemperature from "./WeatherHighTemperature";
+import WeatherLowTemperature from "./WeatherLowTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -34,10 +35,8 @@ export default function WeatherInfo(props) {
           />
 
           <div className="d-flex flex-column d-flex align-items-center">
-            <WeatherTemperature
-              highCelsius={props.data.maxTemperature}
-              lowCelsius={props.data.minTemperature}
-            />
+            <WeatherHighTemperature highCelsius={props.data.maxTemperature} />
+            <WeatherLowTemperature lowCelsius={props.data.minTemperature} />
           </div>
         </div>
       </div>
