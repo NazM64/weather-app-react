@@ -39,12 +39,9 @@ export default function Weather(props) {
 
   if (allData) {
     return (
-      <div className="Temperature">
+      <div className="weather">
         <WeatherInfo data={weatherData} />
-        <WeatherForecast
-          coordinates={weatherData.coordinates}
-          icon={weatherData.icon}
-        />
+        <WeatherForecast coordinates={weatherData.coordinates} />
         <form onSubmit={handleSubmit} id="search-form">
           <input
             type="text"
