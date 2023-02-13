@@ -5,8 +5,9 @@ export default function WeatherTemperature(props) {
   const [unit, setUnit] = useState("celsius");
 
   useEffect(() => {
+    setHighDegree(props.highCelsius);
     setUnit("celsius");
-  }, [props]);
+  }, [props.highCelsius]);
 
   function showHighCelsius(event) {
     event.preventDefault();
