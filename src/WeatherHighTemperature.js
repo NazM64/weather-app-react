@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function WeatherTemperature(props) {
   const [highDegree, setHighDegree] = useState(props.highCelsius);
   const [unit, setUnit] = useState("celsius");
+
+  useEffect(() => {
+    setUnit("celsius");
+  }, [props]);
 
   function showHighCelsius(event) {
     event.preventDefault();
